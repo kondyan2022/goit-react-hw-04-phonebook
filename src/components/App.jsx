@@ -4,10 +4,9 @@ import ContactList from './ContactList/ContactList';
 import Filter from './Filter/Filter';
 
 const LOCAL_STORAGE_KEY = 'contacts';
-
 export const App = () => {
-  const [contacts, setContacts] = useState(
-    () => JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) ?? []
+  const [contacts, setContacts] = useState(() =>
+    JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) ?? '[]')
   );
   const [filter, setFilter] = useState('');
 
