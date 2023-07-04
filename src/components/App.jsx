@@ -24,10 +24,12 @@ export const App = () => {
       alert(`${values.name} is already in contacts.`);
       return;
     }
-    setContacts([...contacts, { ...values }]);
+    setContacts(prevContacts => [...prevContacts, { ...values }]);
   };
   const handleDeleteContact = contactId => {
-    setContacts(contacts.filter(({ id }) => id !== contactId));
+    setContacts(prevContacts =>
+      prevContacts.filter(({ id }) => id !== contactId)
+    );
   };
 
   return (
